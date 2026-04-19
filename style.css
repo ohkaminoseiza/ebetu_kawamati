@@ -81,6 +81,40 @@ body {
     margin-bottom: 3px;
 }
 
+/* ===== Sidebar GPT Card ===== */
+.sidebar-gpt-card {
+    margin-top: 14px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: linear-gradient(150deg, #1a3a6a 0%, #2d6abf 100%);
+}
+
+.sidebar-gpt-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: opacity 0.2s;
+}
+
+.sidebar-gpt-card a:hover {
+    opacity: 0.85;
+}
+
+.gpt-card-icon {
+    font-size: 26px;
+}
+
+.gpt-card-title {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+}
+
 .category-header {
     background-color: #2d4a7a;
     color: #fff;
