@@ -600,6 +600,35 @@ img.detail-card-image {
     background-color: #3d5a8a;
 }
 
+/* ===== Placeholder Card ===== */
+.card-placeholder {
+    border: 2px dashed #c8d8f0;
+    background: #f8f9fb;
+    box-shadow: none;
+}
+
+.placeholder-image {
+    background: #eef1f6;
+}
+
+.card-placeholder .detail-card-header {
+    background: transparent;
+}
+
+.placeholder-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+}
+
+.placeholder-text {
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+    line-height: 2;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .layout {
