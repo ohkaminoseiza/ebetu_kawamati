@@ -4,12 +4,12 @@
 // でプロジェクトを作成後、下記の値を書き換えてください。
 // -------------------------------------------------------
 const firebaseConfig = {
-    apiKey:            "YOUR_API_KEY",
-    authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId:         "YOUR_PROJECT_ID",
-    storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId:             "YOUR_APP_ID"
+    apiKey:            "AIzaSyAMos9tn72Z0-cZamDsY4bODdKmCG6nMcwE",
+    authDomain:        "ebetu-kawamati.firebaseapp.com",
+    projectId:         "ebetu-kawamati",
+    storageBucket:     "ebetu-kawamati.appspot.com",
+    messagingSenderId: "1094143544897",
+    appId:             "1:1094143544897:web:80161061f3379104778f71"
 };
 
 firebase.initializeApp(firebaseConfig);
