@@ -4,7 +4,7 @@
 // でプロジェクトを作成後、下記の値を書き換えてください。
 // -------------------------------------------------------
 const firebaseConfig = {
-    apiKey:            "AIzaSyAMos9tn72Z0-cZamDsY4bODdKmCG6nMcwE",
+    apiKey:            "AIzaSyAMos9tn72Z0-cZamDsY4bODdKmCG6nMcw",
     authDomain:        "ebetu-kawamati.firebaseapp.com",
     projectId:         "ebetu-kawamati",
     storageBucket:     "ebetu-kawamati.appspot.com",

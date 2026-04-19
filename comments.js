@@ -6,14 +6,21 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
-// 匿名サインイン：ページ読み込み時に自動実行
 let currentUser = null;
-auth.onAuthStateChanged(user => {
-    if (user) {
-        currentUser = user;
-    } else {
-        auth.signInAnonymously().catch(e => console.error('signInAnonymously error:', e));
-    }
+
+const authReady = new Promise((resolve, reject) => {
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            currentUser = user;
+            resolve(user);
+            return;
+        }
+
+        auth.signInAnonymously().catch(error => {
+            console.error('signInAnonymously error:', error);
+            reject(error);
+        });
+    }, reject);
 });
 
 async function renderComments(projectId) {
@@ -23,6 +30,8 @@ async function renderComments(projectId) {
     list.innerHTML = '<p class="no-comments">読み込み中...</p>';
 
     try {
+        await authReady;
+
         const snapshot = await db
             .collection('comments')
             .doc(projectId)
@@ -73,11 +82,6 @@ async function deleteComment(projectId, docId) {
 }
 
 async function addComment(projectId) {
-    if (!currentUser) {
-        alert('認証の準備中です。しばらくお待ちください。');
-        return;
-    }
-
     const nameEl = document.getElementById('name-' + projectId);
     const textEl = document.getElementById('text-' + projectId);
     const submitBtn = document.querySelector(`button[onclick="addComment('${projectId}')"]`);
@@ -95,6 +99,8 @@ async function addComment(projectId) {
     if (submitBtn) submitBtn.disabled = true;
 
     try {
+        await authReady;
+
         await db
             .collection('comments')
             .doc(projectId)
