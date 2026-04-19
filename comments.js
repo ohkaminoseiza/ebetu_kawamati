@@ -6,20 +6,15 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
-function generateId() {
-    return Date.now().toString(36) + Math.random().toString(36).slice(2);
-}
-
-// 自分が投稿したコメントのIDをsessionStorageで管理
-function getMyCommentIds() {
-    return JSON.parse(sessionStorage.getItem('my_comment_ids') || '[]');
-}
-
-function saveMyCommentId(id) {
-    const ids = getMyCommentIds();
-    ids.push(id);
-    sessionStorage.setItem('my_comment_ids', JSON.stringify(ids));
-}
+// 匿名サインイン：ページ読み込み時に自動実行
+let currentUser = null;
+auth.onAuthStateChanged(user => {
+    if (user) {
+        currentUser = user;
+    } else {
+        auth.signInAnonymously().catch(e => console.error('signInAnonymously error:', e));
+    }
+});
 
 async function renderComments(projectId) {
     const list = document.getElementById('comments-' + projectId);
@@ -35,8 +30,6 @@ async function renderComments(projectId) {
             .orderBy('timestamp', 'asc')
             .get();
 
-        const myIds = getMyCommentIds();
-
         if (snapshot.empty) {
             list.innerHTML = '<p class="no-comments">まだコメントはありません。最初のコメントを書いてみましょう！</p>';
             return;
@@ -44,7 +37,8 @@ async function renderComments(projectId) {
 
         list.innerHTML = snapshot.docs.map(docSnap => {
             const c = docSnap.data();
-            const canDelete = myIds.includes(c.sessionCommentId);
+            // 自分が投稿したコメントかどうかをauthorIdで判定（サーバー側ルールと一致）
+            const canDelete = currentUser && c.authorId === currentUser.uid;
             return `
             <div class="comment-item">
                 <div class="comment-meta">
@@ -79,6 +73,11 @@ async function deleteComment(projectId, docId) {
 }
 
 async function addComment(projectId) {
+    if (!currentUser) {
+        alert('認証の準備中です。しばらくお待ちください。');
+        return;
+    }
+
     const nameEl = document.getElementById('name-' + projectId);
     const textEl = document.getElementById('text-' + projectId);
     const submitBtn = document.querySelector(`button[onclick="addComment('${projectId}')"]`);
@@ -92,7 +91,6 @@ async function addComment(projectId) {
     const name = nameEl.value.trim() || '匿名';
     const now = new Date();
     const date = now.toLocaleDateString('ja-JP') + ' ' + now.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
-    const sessionCommentId = generateId();
 
     if (submitBtn) submitBtn.disabled = true;
 
@@ -105,11 +103,10 @@ async function addComment(projectId) {
                 name,
                 text,
                 date,
-                sessionCommentId,
+                authorId: currentUser.uid,   // セキュリティルールと照合するUID
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             });
 
-        saveMyCommentId(sessionCommentId);
         nameEl.value = '';
         textEl.value = '';
         renderComments(projectId);
