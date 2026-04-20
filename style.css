@@ -602,33 +602,62 @@ img.detail-card-image {
 
 /* ===== Sidebar About ===== */
 .sidebar-about {
-    margin-top: 14px;
-    background: #fff;
-    border-radius: 6px;
-    padding: 14px 12px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    margin-top: 3px;
 }
 
-.sidebar-about-title {
+.sidebar-about-header {
+    background-color: #2d4a7a;
+    color: #fff;
+    padding: 8px 12px;
     font-size: 12px;
     font-weight: bold;
-    color: #2d4a7a;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #e0e8f4;
+    letter-spacing: 0.02em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
 }
 
-.sidebar-about-text {
+.sidebar-about-header:hover {
+    background-color: #1a3060;
+}
+
+.sidebar-about-toggle {
+    font-size: 10px;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+}
+
+.sidebar-about.collapsed .sidebar-about-toggle {
+    transform: rotate(-90deg);
+}
+
+.sidebar-about-body {
+    background-color: #3d5a8a;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sidebar-about.collapsed .sidebar-about-body {
+    max-height: 0;
+}
+
+.sidebar-about-body p {
     font-size: 11px;
-    color: #555;
+    color: #c8d8f0;
     line-height: 1.75;
-}
-
-.sidebar-about-text p {
+    padding: 0 12px;
     margin-bottom: 8px;
 }
 
-.sidebar-about-text p:last-child {
+.sidebar-about-body p:first-child {
+    padding-top: 10px;
+}
+
+.sidebar-about-body p:last-child {
+    padding-bottom: 10px;
     margin-bottom: 0;
 }
 
