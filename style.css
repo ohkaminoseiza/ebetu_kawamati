@@ -600,6 +600,38 @@ img.detail-card-image {
     background-color: #3d5a8a;
 }
 
+/* ===== Sidebar About ===== */
+.sidebar-about {
+    margin-top: 14px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 14px 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.sidebar-about-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2d4a7a;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e0e8f4;
+}
+
+.sidebar-about-text {
+    font-size: 11px;
+    color: #555;
+    line-height: 1.75;
+}
+
+.sidebar-about-text p {
+    margin-bottom: 8px;
+}
+
+.sidebar-about-text p:last-child {
+    margin-bottom: 0;
+}
+
 /* ===== Placeholder Card ===== */
 .card-placeholder {
     border: 2px dashed #c8d8f0;
