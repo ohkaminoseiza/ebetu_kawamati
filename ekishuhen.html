@@ -6,11 +6,11 @@
     <title>駅周辺・大川通 | 条丁目スタイル</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="category" data-category="ekishuhen">
 
     <header class="header">
         <div class="header-inner">
-            <h1 class="site-title">条丁目スタイル</h1>
+            <h1 class="site-title"><a href="index.html">条丁目スタイル</a></h1>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
@@ -21,109 +21,16 @@
     </header>
 
     <div class="layout">
-
-        <aside class="sidebar">
-            <div class="category-group">
-                <div class="category-header"><a href="chiiki-seibi.html">地域整備事業</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="kawazoi-sports.html">川沿いスポーツ</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="okada.html">旧岡田倉庫・住居活用</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="kanko-event.html">観光・イベント</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="renkei.html">連携プロジェクト</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="ijyu.html">移住政策</a></div>
-            </div>
-            <div class="category-group active">
-                <div class="category-header"><a href="ekishuhen.html">駅周辺・大川通</a></div>
-            </div>
-            <div class="sidebar-gpt-card">
-                <a href="https://chatgpt.com/g/g-69c9966cca2481918930d5166dcb7ac1-jiang-bie-shi-kawamatitukurizhi-yuan-gpt" target="_blank" rel="noopener">
-                    <div class="gpt-card-icon">🤖</div>
-                    <div class="gpt-card-title">条丁目スタイル支援GPT</div>
-                </a>
-            </div>
-            <div class="sidebar-about">
-                <div class="sidebar-about-header" onclick="toggleAbout()">条丁目スタイルとは <span class="sidebar-about-toggle">▼</span></div>
-                <div class="sidebar-about-body">
-                    <p>江別市の「かわまちづくり事業」では、石狩川や千歳川、旧岡田倉庫などの地域の魅力を、「条丁目スタイル」という暮らし方として大切にしていきたいと考えています。</p>
-                    <p>これは、特別なイベントや観光のためだけでなく、川や水辺を私たちの日常生活に自然に取り入れていくことを目指すものです。</p>
-                    <p>たとえば、川沿いを散歩したり、水辺で人と交流したり、文化的な活動を楽しんだりすることが、「特別な日のこと」ではなく、「毎日の暮らしの当たり前」になっていくイメージです。そうした積み重ねの中で、地域への愛着や誇りが自然と育まれていきます。</p>
-                    <p>「川」と「まち」がひとつになった空間を、住民みんなで日々の暮らしの中に取り込んでいくことが、地域の将来をみんなで一緒に考えていくための大切な第一歩になると考えています。</p>
-                    <p>このまちの主役は、ここに暮らす皆さんです。「こんなことをやってみたい」「こんな使い方があるのでは」といった小さなアイデアや気づきを、ぜひ周りの人と話し合い、一緒に形にしていきましょう。皆さん一人ひとりの参加が、江別の川とまちの未来をつくっていきます。</p>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main">
-            <h2 class="page-title">駅周辺・大川通</h2>
-            <div class="detail-grid">
-
-                <!-- 江別駅周辺 -->
-                <div class="detail-card" id="ebetsu-eki">
-                    <div class="detail-card-header">
-                        <div class="detail-card-title"><span>🚉</span><span>江別駅周辺</span></div>
-                        <span class="status-badge status-active">進行中</span>
-                    </div>
-                    <img class="detail-card-image" src="images/ebetsu-eki.jpg" alt="江別駅周辺">
-                    <p class="detail-card-desc">江別駅周辺において、商業機能の充実と空き店舗の活用を目指します。駅前エリアの賑わいを取り戻し、地域住民や来訪者が集う魅力的なまちづくりを推進します。</p>
-                    <div class="comment-section" data-project-id="ebetsu-eki">
-                        <h3 class="comment-section-title">💬 コメント</h3>
-                        <div class="comment-list" id="comments-ebetsu-eki"></div>
-                        <div class="comment-form">
-                            <p class="comment-form-title">コメントを書く</p>
-                            <div class="form-row">
-                                <input type="text" id="name-ebetsu-eki" placeholder="お名前（省略可）">
-                            </div>
-                            <div class="form-row">
-                                <textarea id="text-ebetsu-eki" placeholder="ご意見・ご感想をお書きください"></textarea>
-                            </div>
-                            <button class="comment-submit" onclick="addComment('ebetsu-eki')">送信</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 防災ステーション -->
-                <div class="detail-card" id="bousai">
-                    <div class="detail-card-header">
-                        <div class="detail-card-title"><span>🏛️</span><span>防災ステーション</span></div>
-                        <span class="status-badge status-active">進行中</span>
-                    </div>
-                    <img class="detail-card-image" src="images/bousai.jpg" alt="防災ステーション">
-                    <p class="detail-card-desc">石狩川と千歳川の合流点付近に位置し、災害時の水防活動の拠点や避難場所としての役割を持ちつつ、平常時は江別の歴史を学べる展示や特産品の販売を行っています。また農産物直売所も隣接しています。</p>
-                    <div class="comment-section" data-project-id="bousai">
-                        <h3 class="comment-section-title">💬 コメント</h3>
-                        <div class="comment-list" id="comments-bousai"></div>
-                        <div class="comment-form">
-                            <p class="comment-form-title">コメントを書く</p>
-                            <div class="form-row">
-                                <input type="text" id="name-bousai" placeholder="お名前（省略可）">
-                            </div>
-                            <div class="form-row">
-                                <textarea id="text-bousai" placeholder="ご意見・ご感想をお書きください"></textarea>
-                            </div>
-                            <button class="comment-submit" onclick="addComment('bousai')">送信</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-
+        <aside class="sidebar" data-sidebar></aside>
+        <main class="main" data-content></main>
     </div>
 
+    <script src="data.js"></script>
+    <script src="main.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
     <script src="firebase-config.js"></script>
     <script src="comments.js"></script>
-    <script src="main.js"></script>
 </body>
 </html>

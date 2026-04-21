@@ -37,6 +37,11 @@ body {
     letter-spacing: 0.03em;
 }
 
+.site-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .main-nav ul {
     list-style: none;
     display: flex;
@@ -85,7 +90,7 @@ body {
 .project-index {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
 .project-index-section {
@@ -99,9 +104,7 @@ body {
     font-size: 15px;
     font-weight: bold;
     color: #1a1a2e;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #2d4a7a;
+    margin-bottom: 4px;
 }
 
 .project-index-category a {
@@ -117,14 +120,16 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid #e4e8f0;
 }
 
-.project-index-list li::before {
-    content: "▸";
-    color: #2d4a7a;
-    margin-right: 6px;
-    font-size: 11px;
+.project-index-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .project-index-list a {
@@ -137,6 +142,12 @@ body {
 .project-index-list a:hover {
     color: #2d6abf;
     text-decoration: underline;
+}
+
+.project-index-heading p {
+    font-size: 12px;
+    color: #667;
+    line-height: 1.6;
 }
 
 /* ===== Sidebar GPT Card ===== */
@@ -229,12 +240,110 @@ body {
     margin-bottom: 20px;
 }
 
+/* ===== Home Intro ===== */
+.home-intro {
+    background: #fff;
+    border-radius: 6px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.home-eyebrow {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2d6abf;
+    margin-bottom: 8px;
+}
+
+.home-intro h2 {
+    font-size: 24px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.home-intro p {
+    font-size: 14px;
+    color: #445;
+    line-height: 1.8;
+}
+
+.category-overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.category-overview-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 68px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #e4e8f0;
+    border-radius: 6px;
+    color: #1a1a2e;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.category-overview-card:hover {
+    border-color: #2d6abf;
+    transform: translateY(-1px);
+}
+
+.category-overview-card span {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.category-overview-card small {
+    font-size: 11px;
+    color: #667;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 12px;
+}
+
+.section-heading h2 {
+    font-size: 17px;
+    color: #1a1a2e;
+}
+
+.section-heading a {
+    font-size: 13px;
+    color: #2d6abf;
+    text-decoration: none;
+}
+
+.section-heading a:hover {
+    text-decoration: underline;
+}
+
 /* ===== Project Card ===== */
 .project-card {
+    display: block;
     background: #fff;
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
 .card-top {
@@ -246,9 +355,22 @@ body {
     padding: 14px 12px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     flex: 1;
     min-width: 0;
+}
+
+.category-chip {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: #edf3fb;
+    color: #2d4a7a;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.5;
 }
 
 .card-title-row {
@@ -395,6 +517,17 @@ img.detail-card-image {
     padding: 8px 0;
 }
 
+.notice-section p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.notice-section p:last-child {
+    margin-bottom: 0;
+}
+
 /* ===== Sidebar category header links ===== */
 .category-header a {
     color: inherit;
@@ -421,6 +554,17 @@ img.detail-card-image {
     border-bottom: 2px solid #2d4a7a;
 }
 
+.category-page-header {
+    margin-bottom: 16px;
+}
+
+.category-page-header p {
+    font-size: 13px;
+    color: #556;
+    line-height: 1.75;
+    margin-top: -6px;
+}
+
 /* ===== Detail Grid ===== */
 .detail-grid {
     display: flex;
@@ -442,6 +586,13 @@ img.detail-card-image {
     justify-content: space-between;
     padding: 14px 16px;
     border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-category-label {
+    font-size: 11px;
+    font-weight: bold;
+    color: #2d6abf;
+    margin-bottom: 4px;
 }
 
 .detail-card-title {
@@ -607,6 +758,8 @@ img.detail-card-image {
 }
 
 .sidebar-about-header {
+    width: 100%;
+    border: none;
     background-color: #2d4a7a;
     color: #fff;
     padding: 8px 12px;
@@ -703,5 +856,23 @@ img.detail-card-image {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .category-overview {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card-top {
+        height: auto;
+        min-height: 140px;
+    }
+
+    .card-image {
+        width: 42%;
+    }
+
+    img.card-image {
+        height: auto;
+        min-height: 140px;
     }
 }

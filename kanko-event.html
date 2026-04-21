@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>条丁目スタイル</title>
+    <title>観光・イベント | 条丁目スタイル</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="category" data-category="kanko-event">
 
     <header class="header">
         <div class="header-inner">
-            <h1 class="site-title">条丁目スタイル</h1>
+            <h1 class="site-title"><a href="index.html">条丁目スタイル</a></h1>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
@@ -21,109 +21,16 @@
     </header>
 
     <div class="layout">
-
-        <aside class="sidebar">
-            <div class="category-group">
-                <div class="category-header"><a href="chiiki-seibi.html">地域整備事業</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="kawazoi-sports.html">川沿いスポーツ</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="okada.html">旧岡田倉庫・住居活用</a></div>
-            </div>
-            <div class="category-group active">
-                <div class="category-header"><a href="kanko-event.html">観光・イベント</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="renkei.html">連携プロジェクト</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="ijyu.html">移住政策</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="ekishuhen.html">駅周辺・大川通</a></div>
-            </div>
-            <div class="sidebar-gpt-card">
-                <a href="https://chatgpt.com/g/g-69c9966cca2481918930d5166dcb7ac1-jiang-bie-shi-kawamatitukurizhi-yuan-gpt" target="_blank" rel="noopener">
-                    <div class="gpt-card-icon">🤖</div>
-                    <div class="gpt-card-title">条丁目スタイル支援GPT</div>
-                </a>
-            </div>
-            <div class="sidebar-about">
-                <div class="sidebar-about-header" onclick="toggleAbout()">条丁目スタイルとは <span class="sidebar-about-toggle">▼</span></div>
-                <div class="sidebar-about-body">
-                    <p>江別市の「かわまちづくり事業」では、石狩川や千歳川、旧岡田倉庫などの地域の魅力を、「条丁目スタイル」という暮らし方として大切にしていきたいと考えています。</p>
-                    <p>これは、特別なイベントや観光のためだけでなく、川や水辺を私たちの日常生活に自然に取り入れていくことを目指すものです。</p>
-                    <p>たとえば、川沿いを散歩したり、水辺で人と交流したり、文化的な活動を楽しんだりすることが、「特別な日のこと」ではなく、「毎日の暮らしの当たり前」になっていくイメージです。そうした積み重ねの中で、地域への愛着や誇りが自然と育まれていきます。</p>
-                    <p>「川」と「まち」がひとつになった空間を、住民みんなで日々の暮らしの中に取り込んでいくことが、地域の将来をみんなで一緒に考えていくための大切な第一歩になると考えています。</p>
-                    <p>このまちの主役は、ここに暮らす皆さんです。「こんなことをやってみたい」「こんな使い方があるのでは」といった小さなアイデアや気づきを、ぜひ周りの人と話し合い、一緒に形にしていきましょう。皆さん一人ひとりの参加が、江別の川とまちの未来をつくっていきます。</p>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main">
-            <h2 class="page-title">観光・イベント</h2>
-            <div class="detail-grid">
-
-                <!-- 緑化プロモーション -->
-                <div class="detail-card" id="ryokka">
-                    <div class="detail-card-header">
-                        <div class="detail-card-title"><span>🌸</span><span>緑化プロモーション</span></div>
-                        <span class="status-badge status-active">進行中</span>
-                    </div>
-                    <img class="detail-card-image" src="images/ryokka.png" alt="緑化プロモーション">
-                    <p class="detail-card-desc">地域の豊かな自然や緑化活動をSNS・パンフレット・映像で広く発信し、観光誘致につなげるプロジェクトです。桜並木や河川沿いの四季の景色を活かした情報発信を行い、地域の認知度向上を目指しています。</p>
-                    <div class="comment-section" data-project-id="ryokka">
-                        <h3 class="comment-section-title">💬 コメント</h3>
-                        <div class="comment-list" id="comments-ryokka"></div>
-                        <div class="comment-form">
-                            <p class="comment-form-title">コメントを書く</p>
-                            <div class="form-row">
-                                <input type="text" id="name-ryokka" placeholder="お名前（省略可）">
-                            </div>
-                            <div class="form-row">
-                                <textarea id="text-ryokka" placeholder="ご意見・ご感想をお書きください"></textarea>
-                            </div>
-                            <button class="comment-submit" onclick="addComment('ryokka')">送信</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 地域イベント -->
-                <div class="detail-card" id="chiiki-event">
-                    <div class="detail-card-header">
-                        <div class="detail-card-title"><span>🎪</span><span>地域イベント</span></div>
-                        <span class="status-badge status-planning">企画中</span>
-                    </div>
-                    <img class="detail-card-image" src="images/festa.jpg" alt="地域イベント">
-                    <p class="detail-card-desc">地域住民が一体となって楽しめる年間イベントを企画しています。地元農産物や特産品を集めたマルシェ、ステージパフォーマンス、子ども向けワークショップなど、世代を超えて楽しめる多彩なコンテンツを検討中です。</p>
-                    <div class="comment-section" data-project-id="chiiki-event">
-                        <h3 class="comment-section-title">💬 コメント</h3>
-                        <div class="comment-list" id="comments-chiiki-event"></div>
-                        <div class="comment-form">
-                            <p class="comment-form-title">コメントを書く</p>
-                            <div class="form-row">
-                                <input type="text" id="name-chiiki-event" placeholder="お名前（省略可）">
-                            </div>
-                            <div class="form-row">
-                                <textarea id="text-chiiki-event" placeholder="ご意見・ご感想をお書きください"></textarea>
-                            </div>
-                            <button class="comment-submit" onclick="addComment('chiiki-event')">送信</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-
+        <aside class="sidebar" data-sidebar></aside>
+        <main class="main" data-content></main>
     </div>
 
+    <script src="data.js"></script>
+    <script src="main.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
     <script src="firebase-config.js"></script>
     <script src="comments.js"></script>
-    <script src="main.js"></script>
 </body>
 </html>

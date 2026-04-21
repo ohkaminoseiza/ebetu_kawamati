@@ -6,11 +6,11 @@
     <title>地域整備事業 | 条丁目スタイル</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="category" data-category="chiiki-seibi">
 
     <header class="header">
         <div class="header-inner">
-            <h1 class="site-title">条丁目スタイル</h1>
+            <h1 class="site-title"><a href="index.html">条丁目スタイル</a></h1>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
@@ -21,133 +21,16 @@
     </header>
 
     <div class="layout">
-
-        <aside class="sidebar">
-            <div class="category-group active">
-                <div class="category-header"><a href="chiiki-seibi.html">地域整備事業</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="kawazoi-sports.html">川沿いスポーツ</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="okada.html">旧岡田倉庫・住居活用</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="kanko-event.html">観光・イベント</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="renkei.html">連携プロジェクト</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="ijyu.html">移住政策</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="ekishuhen.html">駅周辺・大川通</a></div>
-            </div>
-            <div class="sidebar-gpt-card">
-                <a href="https://chatgpt.com/g/g-69c9966cca2481918930d5166dcb7ac1-jiang-bie-shi-kawamatitukurizhi-yuan-gpt" target="_blank" rel="noopener">
-                    <div class="gpt-card-icon">🤖</div>
-                    <div class="gpt-card-title">条丁目スタイル支援GPT</div>
-                </a>
-            </div>
-            <div class="sidebar-about">
-                <div class="sidebar-about-header" onclick="toggleAbout()">条丁目スタイルとは <span class="sidebar-about-toggle">▼</span></div>
-                <div class="sidebar-about-body">
-                    <p>江別市の「かわまちづくり事業」では、石狩川や千歳川、旧岡田倉庫などの地域の魅力を、「条丁目スタイル」という暮らし方として大切にしていきたいと考えています。</p>
-                    <p>これは、特別なイベントや観光のためだけでなく、川や水辺を私たちの日常生活に自然に取り入れていくことを目指すものです。</p>
-                    <p>たとえば、川沿いを散歩したり、水辺で人と交流したり、文化的な活動を楽しんだりすることが、「特別な日のこと」ではなく、「毎日の暮らしの当たり前」になっていくイメージです。そうした積み重ねの中で、地域への愛着や誇りが自然と育まれていきます。</p>
-                    <p>「川」と「まち」がひとつになった空間を、住民みんなで日々の暮らしの中に取り込んでいくことが、地域の将来をみんなで一緒に考えていくための大切な第一歩になると考えています。</p>
-                    <p>このまちの主役は、ここに暮らす皆さんです。「こんなことをやってみたい」「こんな使い方があるのでは」といった小さなアイデアや気づきを、ぜひ周りの人と話し合い、一緒に形にしていきましょう。皆さん一人ひとりの参加が、江別の川とまちの未来をつくっていきます。</p>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main">
-            <h2 class="page-title">地域整備事業</h2>
-            <div class="detail-grid">
-
-                <!-- 散歩道整備 -->
-                <div class="detail-card" id="sanpomichi">
-                    <div class="detail-card-header">
-                        <div class="detail-card-title"><span>🌿</span><span>散歩道整備</span></div>
-                        <span class="status-badge status-active">進行中</span>
-                    </div>
-                    <img class="detail-card-image" src="images/sanpomichi.jpg" alt="散歩道整備">
-                    <p class="detail-card-desc">地元住民が毎日気持ちよく散歩やジョギングを楽しめるよう、河川沿いの遊歩道を整備するプロジェクトです。安全で快適な歩行空間の実現を目指しています。</p>
-                    <div class="comment-section" data-project-id="sanpomichi">
-                        <h3 class="comment-section-title">💬 コメント</h3>
-                        <div class="comment-list" id="comments-sanpomichi"></div>
-                        <div class="comment-form">
-                            <p class="comment-form-title">コメントを書く</p>
-                            <div class="form-row">
-                                <input type="text" id="name-sanpomichi" placeholder="お名前（省略可）">
-                            </div>
-                            <div class="form-row">
-                                <textarea id="text-sanpomichi" placeholder="ご意見・ご感想をお書きください"></textarea>
-                            </div>
-                            <button class="comment-submit" onclick="addComment('sanpomichi')">送信</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 植栽 -->
-                <div class="detail-card" id="shokusai">
-                    <div class="detail-card-header">
-                        <div class="detail-card-title"><span>🌸</span><span>植栽</span></div>
-                        <span class="status-badge status-recruiting">募集中</span>
-                    </div>
-                    <img class="detail-card-image" src="images/shokusai.jpg" alt="植栽">
-                    <p class="detail-card-desc">散歩道沿いに季節の花や樹木を植栽し、四季を感じられる緑豊かな歩行空間を作ります。花の種類の選定や植え付け作業に、ぜひご参加ください。また植樹記念プレート事業による桜並木の造成も検討中です。</p>
-                    <div class="comment-section" data-project-id="shokusai">
-                        <h3 class="comment-section-title">💬 コメント</h3>
-                        <div class="comment-list" id="comments-shokusai"></div>
-                        <div class="comment-form">
-                            <p class="comment-form-title">コメントを書く</p>
-                            <div class="form-row">
-                                <input type="text" id="name-shokusai" placeholder="お名前（省略可）">
-                            </div>
-                            <div class="form-row">
-                                <textarea id="text-shokusai" placeholder="ご意見・ご感想をお書きください"></textarea>
-                            </div>
-                            <button class="comment-submit" onclick="addComment('shokusai')">送信</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ベンチ・健康器具設置 -->
-                <div class="detail-card" id="bench">
-                    <div class="detail-card-header">
-                        <div class="detail-card-title"><span>🪑</span><span>ベンチ・健康器具設置</span></div>
-                        <span class="status-badge status-planning">企画中</span>
-                    </div>
-                    <img class="detail-card-image" src="images/bench.jpg" alt="ベンチ・健康器具設置">
-                    <p class="detail-card-desc">散歩道の要所に休憩用ベンチを設置するとともに、高齢者から子どもまで気軽に使える健康器具を配置を検討いたします。また桜並木と同様、記念プレート事業による設置資金の獲得を検討いたします。</p>
-                    <div class="comment-section" data-project-id="bench">
-                        <h3 class="comment-section-title">💬 コメント</h3>
-                        <div class="comment-list" id="comments-bench"></div>
-                        <div class="comment-form">
-                            <p class="comment-form-title">コメントを書く</p>
-                            <div class="form-row">
-                                <input type="text" id="name-bench" placeholder="お名前（省略可）">
-                            </div>
-                            <div class="form-row">
-                                <textarea id="text-bench" placeholder="ご意見・ご感想をお書きください"></textarea>
-                            </div>
-                            <button class="comment-submit" onclick="addComment('bench')">送信</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-
+        <aside class="sidebar" data-sidebar></aside>
+        <main class="main" data-content></main>
     </div>
 
+    <script src="data.js"></script>
+    <script src="main.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
     <script src="firebase-config.js"></script>
     <script src="comments.js"></script>
-    <script src="main.js"></script>
 </body>
 </html>

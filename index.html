@@ -6,14 +6,14 @@
     <title>条丁目スタイル</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="home">
 
     <header class="header">
         <div class="header-inner">
-            <h1 class="site-title">条丁目スタイル</h1>
+            <h1 class="site-title"><a href="index.html">条丁目スタイル</a></h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="index.html" class="active">ホーム</a></li>
                     <li><a href="projects.html">プロジェクト一覧</a></li>
                 </ul>
             </nav>
@@ -21,231 +21,11 @@
     </header>
 
     <div class="layout">
-
-        <aside class="sidebar">
-            <div class="category-group">
-                <div class="category-header"><a href="chiiki-seibi.html">地域整備事業</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="kawazoi-sports.html">川沿いスポーツ</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="okada.html">旧岡田倉庫・住居活用</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="kanko-event.html">観光・イベント</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="renkei.html">連携プロジェクト</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="ijyu.html">移住政策</a></div>
-            </div>
-            <div class="category-group">
-                <div class="category-header"><a href="ekishuhen.html">駅周辺・大川通</a></div>
-            </div>
-            <div class="sidebar-gpt-card">
-                <a href="https://chatgpt.com/g/g-69c9966cca2481918930d5166dcb7ac1-jiang-bie-shi-kawamatitukurizhi-yuan-gpt" target="_blank" rel="noopener">
-                    <div class="gpt-card-icon">🤖</div>
-                    <div class="gpt-card-title">条丁目スタイル支援GPT</div>
-                </a>
-            </div>
-            <div class="sidebar-about">
-                <div class="sidebar-about-header" onclick="toggleAbout()">条丁目スタイルとは <span class="sidebar-about-toggle">▼</span></div>
-                <div class="sidebar-about-body">
-                    <p>江別市の「かわまちづくり事業」では、石狩川や千歳川、旧岡田倉庫などの地域の魅力を、「条丁目スタイル」という暮らし方として大切にしていきたいと考えています。</p>
-                    <p>これは、特別なイベントや観光のためだけでなく、川や水辺を私たちの日常生活に自然に取り入れていくことを目指すものです。</p>
-                    <p>たとえば、川沿いを散歩したり、水辺で人と交流したり、文化的な活動を楽しんだりすることが、「特別な日のこと」ではなく、「毎日の暮らしの当たり前」になっていくイメージです。そうした積み重ねの中で、地域への愛着や誇りが自然と育まれていきます。</p>
-                    <p>「川」と「まち」がひとつになった空間を、住民みんなで日々の暮らしの中に取り込んでいくことが、地域の将来をみんなで一緒に考えていくための大切な第一歩になると考えています。</p>
-                    <p>このまちの主役は、ここに暮らす皆さんです。「こんなことをやってみたい」「こんな使い方があるのでは」といった小さなアイデアや気づきを、ぜひ周りの人と話し合い、一緒に形にしていきましょう。皆さん一人ひとりの参加が、江別の川とまちの未来をつくっていきます。</p>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main">
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🌿</span>
-                                <h2 class="project-title">散歩道整備</h2>
-                            </div>
-                            <span class="status-badge status-active">進行中</span>
-                        </div>
-                        <img class="card-image" src="images/sanpomichi.jpg" alt="散歩道整備">
-                    </div>
-                    <p class="project-desc">地元住民が散歩やジョギングを楽しめる日常的な公園の整備を進めています。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🏄</span>
-                                <h2 class="project-title">SUP・歩くスキー</h2>
-                            </div>
-                            <span class="status-badge status-recruiting">企画中</span>
-                        </div>
-                        <img class="card-image" src="images/sup.png" alt="SUP・歩くスキー">
-                    </div>
-                    <p class="project-desc">市内の川べりでSUP（スタンドアップパドルボード）や歩くスキーの快適なイベントを企画中です。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🏚️</span>
-                                <h2 class="project-title">旧岡田倉庫</h2>
-                            </div>
-                            <span class="status-badge status-active">進行中</span>
-                        </div>
-                        <img class="card-image" src="images/okada-soko.jpg" alt="旧岡田倉庫">
-                    </div>
-                    <p class="project-desc">旧岡田倉庫を地域の新たな交流拠点として、カフェやイベントスペースとして活用する計画を進めています。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🏠</span>
-                                <h2 class="project-title">旧岡田住居</h2>
-                            </div>
-                            <span class="status-badge status-active">進行中</span>
-                        </div>
-                        <img class="card-image" src="images/okada-jukyo.jpg" alt="旧岡田住居">
-                    </div>
-                    <p class="project-desc">旧岡田住居を地域資源として活用するための計画を検討しています。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🌸</span>
-                                <h2 class="project-title">緑化プロモーション</h2>
-                            </div>
-                            <span class="status-badge status-active">進行中</span>
-                        </div>
-                        <img class="card-image" src="images/ryokka.png" alt="緑化プロモーション">
-                    </div>
-                    <p class="project-desc">地域の緑化活動を広くPRし、観光資源としての魅力向上を図ります。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🎪</span>
-                                <h2 class="project-title">地域イベント</h2>
-                            </div>
-                            <span class="status-badge status-planning">企画中</span>
-                        </div>
-                        <img class="card-image" src="images/festa.jpg" alt="地域イベント">
-                    </div>
-                    <p class="project-desc">地域住民が楽しめるイベントを企画中。飲食ブースやステージイベントなど、多彩な内容です。</p>
-                </div>
-
-                
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🤝</span>
-                                <h2 class="project-title">地域連携事業</h2>
-                            </div>
-                            <span class="status-badge status-planning">企画中</span>
-                        </div>
-                        <div class="card-image img-community"></div>
-                    </div>
-                    <p class="project-desc">地域内の団体・企業と連携し、まちづくりを総合的に推進するプロジェクトです。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🎓</span>
-                                <h2 class="project-title">大学連携事業</h2>
-                            </div>
-                            <span class="status-badge status-planning">企画中</span>
-                        </div>
-                        <div class="card-image img-study"></div>
-                    </div>
-                    <p class="project-desc">地域の大学と連携し、学生の知見を活かした地域課題の解決に取り組みます。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">📢</span>
-                                <h2 class="project-title">移住者向け情報発信</h2>
-                            </div>
-                            <span class="status-badge status-planning">企画中</span>
-                        </div>
-                        <div class="card-image img-migration"></div>
-                    </div>
-                    <p class="project-desc">移住を検討している方に向けて、地域の魅力や生活情報を積極的に発信しています。</p>
-                </div>
-
-<div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🏚️</span>
-                                <h2 class="project-title">江別駅周辺</h2>
-                            </div>
-                            <span class="status-badge status-active">進行中</span>
-                        </div>
-                        <img class="card-image" src="images/ebetsu-eki.jpg" alt="江別駅周辺">
-                    </div>
-                    <p class="project-desc">江別駅周辺において、商業機能の充実と空き店舗の活用を目指します。</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">🏚️</span>
-                                <h2 class="project-title">防災ステーション</h2>
-                            </div>
-                            <span class="status-badge status-active">進行中</span>
-                        </div>
-                        <img class="card-image" src="images/bousai.jpg" alt="防災ステーション">
-                    </div>
-                    <p class="project-desc">石狩川と千歳川の合流点付近に位置し、災害時の水防活動の拠点や避難場所としての役割を持ちつつ、平常時は江別の歴史を学べる展示や特産品の販売を行っています。また農産物直売所も隣接しています。</p>
-                </div>
-
-
-                <div class="project-card card-placeholder">
-                    <div class="card-top">
-                        <div class="card-info">
-                            <div class="card-title-row">
-                                <span class="project-icon">💡</span>
-                                <h2 class="project-title">新企画構想中</h2>
-                            </div>
-                            <span class="status-badge status-planning">企画中</span>
-                        </div>
-                        <div class="card-image placeholder-image"></div>
-                    </div>
-                    <p class="project-desc">新しい企画を準備中です。お楽しみに！</p>
-                </div>
-
-            </div>
-
-            <div class="notice-section">
-                <h2 class="notice-title">お知らせ&amp;掲示板</h2>
-                <p>本ウェブページは、「かわまちづくり連携会議」における関係者間の情報共有を図るとともに、各種事業の内容を一覧的に整理し、可視化することを目的として作成・公開いたしました。<br><br>現在は試行的な運用段階にあるため、掲載しております各事業の内容は仮のものとなっております。今後は、連携会議での議論や進捗状況を踏まえつつ、内容の精査および更新を順次行っていく予定です。<br><br></p>
-            </div>
-        </main>
-
+        <aside class="sidebar" data-sidebar></aside>
+        <main class="main" data-content></main>
     </div>
 
+    <script src="data.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
