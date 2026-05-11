@@ -143,6 +143,43 @@ function renderProjectIndex() {
         </div>`;
 }
 
+function renderSubProjects(subProjects) {
+    if (!subProjects || subProjects.length === 0) return '';
+
+    const items = subProjects.map(sp => `
+        <div class="sub-project-item" id="sp-${sp.id}">
+            <button class="sub-project-header" type="button" onclick="toggleSubProject('${sp.id}')">
+                <div class="sub-project-header-left">
+                    <span class="sub-project-title">${sp.title}</span>
+                    <span class="status-badge status-${sp.status}">${sp.statusLabel}</span>
+                </div>
+                <div class="sub-project-header-right">
+                    <span class="sub-project-progress-text">${sp.progress}%</span>
+                    <span class="sub-project-toggle">▼</span>
+                </div>
+            </button>
+            <div class="sub-project-body">
+                <div class="sub-project-progress-bar">
+                    <div class="sub-project-progress-fill" style="width: ${sp.progress}%"></div>
+                </div>
+                <p class="sub-project-desc">${sp.description}</p>
+                <p class="sub-project-updated">最終更新: ${sp.updatedAt}</p>
+            </div>
+        </div>
+    `).join('');
+
+    return `
+        <div class="sub-projects-section">
+            <h4 class="sub-projects-heading">📋 個別事業の詳細</h4>
+            <div class="sub-projects-list">${items}</div>
+        </div>`;
+}
+
+function toggleSubProject(id) {
+    const item = document.getElementById('sp-' + id);
+    if (item) item.classList.toggle('expanded');
+}
+
 function renderDetailPage(categoryId) {
     const main = document.querySelector('[data-content]');
     const category = categoryById(categoryId);
@@ -159,6 +196,7 @@ function renderDetailPage(categoryId) {
             </div>
             ${imageMarkup(project, 'detail-card-image')}
             <p class="detail-card-desc">${project.detail}</p>
+            ${renderSubProjects(project.subProjects)}
             <div class="comment-section" data-project-id="${project.id}">
                 <h3 class="comment-section-title">💬 コメント</h3>
                 <div class="comment-list" id="comments-${project.id}"></div>

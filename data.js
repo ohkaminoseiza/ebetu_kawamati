@@ -185,7 +185,36 @@ const SITE_PROJECTS = [
         statusLabel: '進行中',
         image: 'images/ebetsu-eki.jpg',
         summary: '商業機能と空き店舗活用を軸に、駅前のにぎわいと回遊性を高めます。',
-        detail: '江別駅周辺において、商業機能の充実と空き店舗の活用を目指します。駅前エリアの賑わいを取り戻し、地域住民や来訪者が集う魅力的なまちづくりを推進します。'
+        detail: '江別駅周辺において、商業機能の充実と空き店舗の活用を目指します。駅前エリアの賑わいを取り戻し、地域住民や来訪者が集う魅力的なまちづくりを推進します。',
+        subProjects: [
+            {
+                id: 'akitenpo-katsuyo',
+                title: '空き店舗活用プロジェクト',
+                status: 'active',
+                statusLabel: '進行中',
+                description: '駅前通り沿いの空き店舗を調査し、新規出店者とのマッチングを進めています。地域に求められる業態を把握するためのアンケート調査や、オーナーとの交渉を並行して行っています。',
+                progress: 40,
+                updatedAt: '2026-05-01'
+            },
+            {
+                id: 'ekimae-nigiwai',
+                title: '駅前にぎわい創出事業',
+                status: 'planning',
+                statusLabel: '企画中',
+                description: '駅前広場を活用したマルシェやキッチンカーイベントの定期開催を企画中です。地元商店街との連携を図りながら、歩行者にとって魅力ある滞留空間の創出を検討しています。',
+                progress: 15,
+                updatedAt: '2026-04-20'
+            },
+            {
+                id: 'shogyo-kino',
+                title: '商業機能強化検討',
+                status: 'planning',
+                statusLabel: '企画中',
+                description: '駅周辺に不足している商業機能（日用品、飲食、コミュニティスペース等）の調査を実施し、持続可能な商業環境の整備に向けた方針を策定する予定です。',
+                progress: 10,
+                updatedAt: '2026-04-15'
+            }
+        ]
     },
     {
         id: 'bousai',

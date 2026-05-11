@@ -618,6 +618,133 @@ img.detail-card-image {
     border-bottom: 1px solid #f0f0f0;
 }
 
+/* ===== Sub-Projects Section ===== */
+.sub-projects-section {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sub-projects-heading {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+}
+
+.sub-projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sub-project-item {
+    border: 1px solid #e4e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.sub-project-item:hover {
+    border-color: #b0c4e8;
+}
+
+.sub-project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    background: #f8f9fb;
+    cursor: pointer;
+    font-family: inherit;
+    gap: 12px;
+    transition: background-color 0.15s;
+}
+
+.sub-project-header:hover {
+    background: #edf1f7;
+}
+
+.sub-project-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.sub-project-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a1a2e;
+}
+
+.sub-project-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.sub-project-progress-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2d6abf;
+}
+
+.sub-project-toggle {
+    font-size: 10px;
+    color: #888;
+    transition: transform 0.25s;
+}
+
+.sub-project-item:not(.expanded) .sub-project-toggle {
+    transform: rotate(-90deg);
+}
+
+.sub-project-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 14px;
+}
+
+.sub-project-item.expanded .sub-project-body {
+    max-height: 500px;
+    padding: 14px;
+    border-top: 1px solid #e4e8f0;
+}
+
+.sub-project-progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e4e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.sub-project-progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #2d6abf, #3aaa8f);
+    transition: width 0.5s ease;
+}
+
+.sub-project-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.75;
+    margin-bottom: 8px;
+}
+
+.sub-project-updated {
+    font-size: 11px;
+    color: #999;
+    text-align: right;
+}
+
 /* ===== Comment Section ===== */
 .comment-section {
     padding: 16px;
