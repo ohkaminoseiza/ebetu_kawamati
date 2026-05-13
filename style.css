@@ -276,6 +276,12 @@ body {
     margin-bottom: 18px;
 }
 
+@media (min-width: 769px) {
+    .category-overview {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 .category-overview-card {
     display: flex;
     flex-direction: column;

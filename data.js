@@ -40,6 +40,12 @@ const SITE_CATEGORIES = [
         title: '駅周辺・大川通',
         file: 'ekishuhen.html',
         lead: '駅前、大川通、防災拠点など、まち側の回遊性と機能を扱うカテゴリです。'
+    },
+    {
+        id: 'kawa-manabi',
+        title: '川の記憶と学び',
+        file: 'kawa-manabi.html',
+        lead: '石狩川・千歳川とともに歩んできた江別の歴史・文化・自然・防災を、市民が学び次世代に伝えるためのカテゴリです。'
     }
 ];
 
@@ -226,5 +232,49 @@ const SITE_PROJECTS = [
         image: 'images/bousai.jpg',
         summary: '防災拠点としての役割と、歴史展示・特産品販売などの平常時利用を結びます。',
         detail: '石狩川と千歳川の合流点付近に位置し、災害時の水防活動の拠点や避難場所としての役割を持ちつつ、平常時は江別の歴史を学べる展示や特産品の販売を行っています。また農産物直売所も隣接しています。'
+    },
+    {
+        id: 'mini-kouza',
+        categoryId: 'kawa-manabi',
+        title: 'ミニ講座・まち歩き',
+        icon: '🚶',
+        status: 'planning',
+        statusLabel: '企画中',
+        imageClass: 'img-river',
+        summary: '旧岡田倉庫や駅周辺を巡りながら、川と地域の歴史を学ぶ体験型プログラムを企画します。',
+        detail: '旧岡田倉庫、江別駅周辺、防災ステーションなどの歴史的拠点を巡るまち歩きや、公民館等でのミニ講座を通じて、石狩川・千歳川と江別の歩みを市民が楽しく学べる機会をつくります。地域への愛着形成や観光案内への展開も視野に入れています。'
+    },
+    {
+        id: 'oyako-manabi',
+        categoryId: 'kawa-manabi',
+        title: '親子向け川の学び',
+        icon: '👨‍👩‍👧‍👦',
+        status: 'planning',
+        statusLabel: '企画中',
+        imageClass: 'img-green',
+        summary: '親子で川の自然や防災を学ぶ体験イベント・ワークショップを検討します。',
+        detail: '子どもたちが川の生き物観察や水辺の安全学習、防災体験などを親子で楽しめるプログラムを企画します。次世代への川の記憶の継承と、世代間交流の促進、防災意識の向上を目指します。'
+    },
+    {
+        id: 'shimin-guide',
+        categoryId: 'kawa-manabi',
+        title: '市民ガイド育成',
+        icon: '🎓',
+        status: 'planning',
+        statusLabel: '企画中',
+        imageClass: 'img-study',
+        summary: '川と地域の歴史を語り継ぐ市民ガイドを育て、まち歩きや観光案内に活かします。',
+        detail: '石狩川・千歳川にまつわる歴史・文化・自然・防災の知識を体系的に学び、まち歩きや来訪者への案内を担う市民ガイドの育成プログラムを段階的に整備します。地域への愛着と誇りを持った担い手づくりを進めます。'
+    },
+    {
+        id: 'digital-kyouzai',
+        categoryId: 'kawa-manabi',
+        title: 'デジタル教材の作成',
+        icon: '💻',
+        status: 'planning',
+        statusLabel: '企画中',
+        imageClass: 'img-community',
+        summary: '川の歴史や防災知識をオンラインで学べるデジタル教材を制作します。',
+        detail: '石狩川・千歳川の歴史、水害の記録、自然環境、まちの発展の歩みなどをまとめたデジタル教材を作成します。学校教育や生涯学習、観光情報としても活用でき、時間や場所を選ばず誰でもアクセスできる学びの基盤を目指します。'
     }
 ];
