@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>マンション管理士 日替わり過去問 | 条丁目スタイル</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 52px;
+            padding: 0 16px;
+        }
+        .site-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a1a2e;
+        }
+        .site-title a { color: inherit; text-decoration: none; }
+        .back-link {
+            font-size: 13px;
+            color: #2d6abf;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Main container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Date badge */
+        .date-badge {
+            display: inline-block;
+            background: #2d6abf;
+            color: #fff;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 0.04em;
+        }
+
+        /* Question card */
+        .question-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .question-meta {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .question-number {
+            font-size: 13px;
+            font-weight: bold;
+            color: #2d6abf;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 1.8;
+            color: #1a1a2e;
+            border-left: 4px solid #2d6abf;
+            padding-left: 12px;
+            margin-bottom: 20px;
+        }
+
+        /* Choices */
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .choice-btn {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #f7f8fa;
+            border: 2px solid #e8eaed;
+            border-radius: 10px;
+            padding: 12px 14px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            transition: border-color 0.2s, background 0.2s;
+            width: 100%;
+            font-family: inherit;
+        }
+        .choice-btn:hover {
+            border-color: #2d6abf;
+            background: #eef4ff;
+        }
+        .choice-btn.selected {
+            border-color: #2d6abf;
+            background: #eef4ff;
+        }
+        .choice-btn.correct {
+            border-color: #1e8c45;
+            background: #edfaf2;
+        }
+        .choice-btn.wrong {
+            border-color: #d93025;
+            background: #fdecea;
+        }
+        .choice-btn.show-correct {
+            border-color: #1e8c45;
+            background: #edfaf2;
+        }
+
+        .choice-label {
+            font-weight: bold;
+            font-size: 13px;
+            min-width: 20px;
+            padding-top: 1px;
+            color: #555;
+        }
+        .choice-btn.correct .choice-label { color: #1e8c45; }
+        .choice-btn.wrong .choice-label { color: #d93025; }
+        .choice-btn.show-correct .choice-label { color: #1e8c45; }
+
+        /* Result section */
+        .result-section {
+            margin-top: 16px;
+        }
+
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+        .result-badge.correct-result {
+            background: #edfaf2;
+            color: #1e8c45;
+            border: 1px solid #1e8c45;
+        }
+        .result-badge.wrong-result {
+            background: #fdecea;
+            color: #d93025;
+            border: 1px solid #d93025;
+        }
+
+        .explanation-box {
+            background: #f7f9fc;
+            border-left: 4px solid #f0a500;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 16px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #444;
+        }
+        .explanation-title {
+            font-weight: bold;
+            color: #f0a500;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        /* Action buttons */
+        .action-area {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.88; }
+        .btn-primary {
+            background: #2d6abf;
+            color: #fff;
+        }
+        .btn-secondary {
+            background: #e8eaed;
+            color: #333;
+        }
+
+        /* Progress */
+        .progress-area {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        .progress-title {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .progress-stats {
+            display: flex;
+            gap: 20px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2d6abf;
+        }
+        .stat-number.correct-stat { color: #1e8c45; }
+        .stat-number.wrong-stat { color: #d93025; }
+        .stat-label {
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        /* Navigation */
+        .quiz-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+        }
+        .nav-info {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+        }
+        .nav-btn {
+            background: #f0f2f5;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            color: #333;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .nav-btn:hover { background: #e0e2e6; }
+        .nav-btn:disabled { opacity: 0.4; cursor: default; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            padding: 24px 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .header-inner { height: 48px; }
+            .site-title { font-size: 14px; }
+            .container { padding: 12px; }
+            .question-card { padding: 16px; }
+            .question-text { font-size: 14px; }
+            .choice-btn { font-size: 13px; padding: 10px 12px; }
+            .progress-stats { gap: 14px; }
+            .stat-number { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="site-title"><a href="index.html">条丁目スタイル</a></div>
+            <a class="back-link" href="index.html">← トップ</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="app">
+            <div class="loading">読み込み中...</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>マンション管理士試験 過去問練習</p>
+        <p style="margin-top:4px;">毎朝7時に問題が更新されます</p>
+    </footer>
+
+    <script src="quiz-data.js"></script>
+    <script>
+    (function() {
+        const STORAGE_KEY = 'mansionQuiz';
+
+        function getTodayIndex() {
+            const now = new Date();
+            const jst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+            // 7時切り替え: 今日7時以降 → 当日基準、7時前 → 前日基準
+            const base = new Date(jst);
+            if (base.getUTCHours() < 7) {
+                base.setUTCDate(base.getUTCDate() - 1);
+            }
+            const epoch = new Date(Date.UTC(2024, 0, 1, 7, 0, 0));
+            const daysDiff = Math.floor((base - epoch) / (1000 * 60 * 60 * 24));
+            return ((daysDiff % quizData.length) + quizData.length) % quizData.length;
+        }
+
+        function getTodayLabel() {
+            const now = new Date();
+            const jst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+            if (jst.getUTCHours() < 7) {
+                jst.setUTCDate(jst.getUTCDate() - 1);
+            }
+            return `${jst.getUTCFullYear()}年${jst.getUTCMonth()+1}月${jst.getUTCDate()}日の問題`;
+        }
+
+        function loadState() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch(e) { return {}; }
+        }
+
+        function saveState(state) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            } catch(e) {}
+        }
+
+        let currentIndex;
+        let answered = false;
+        let selectedChoice = null;
+        let state;
+
+        function getState(idx) {
+            return state[idx] || { answered: false, selectedChoice: null };
+        }
+
+        function render() {
+            const q = quizData[currentIndex];
+            const qs = getState(currentIndex);
+            answered = qs.answered;
+            selectedChoice = qs.selectedChoice;
+
+            const todayIndex = getTodayIndex();
+            const totalAnswered = Object.keys(state).length;
+            const correctCount = Object.values(state).filter(s => s.answered && s.selectedChoice === quizData[Object.keys(state).find(k => state[k] === s)]).length;
+
+            // Count correct
+            let correct = 0, total = 0;
+            for (const [k, v] of Object.entries(state)) {
+                if (v.answered) {
+                    total++;
+                    if (v.selectedChoice === quizData[parseInt(k)].answer) correct++;
+                }
+            }
+
+            const labels = ['ア', 'イ', 'ウ', 'エ'];
+
+            let choicesHTML = q.choices.map((c, i) => {
+                let cls = 'choice-btn';
+                if (answered) {
+                    if (i === q.answer) cls += ' show-correct';
+                    if (i === selectedChoice && i !== q.answer) cls += ' wrong';
+                    if (i === selectedChoice && i === q.answer) cls = 'choice-btn correct';
+                } else if (i === selectedChoice) {
+                    cls += ' selected';
+                }
+                return `<button class="${cls}" onclick="selectChoice(${i})" ${answered ? 'disabled' : ''}>
+                    <span class="choice-label">${labels[i]}</span>
+                    <span>${c}</span>
+                </button>`;
+            }).join('');
+
+            let resultHTML = '';
+            if (answered) {
+                const isCorrect = selectedChoice === q.answer;
+                resultHTML = `
+                <div class="result-section">
+                    <div class="result-badge ${isCorrect ? 'correct-result' : 'wrong-result'}">
+                        ${isCorrect ? '⭕ 正解！' : '✕ 不正解'}
+                        ${!isCorrect ? `（正解：${labels[q.answer]}）` : ''}
+                    </div>
+                    <div class="explanation-box">
+                        <div class="explanation-title">解説</div>
+                        ${q.explanation}
+                    </div>
+                </div>`;
+            }
+
+            const app = document.getElementById('app');
+            app.innerHTML = `
+            <span class="date-badge">${currentIndex === todayIndex ? getTodayLabel() : `No.${currentIndex + 1} / ${quizData.length}`}</span>
+
+            <div class="progress-area">
+                <div class="progress-title">学習の記録</div>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">${total}</div>
+                        <div class="stat-label">回答済み</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number correct-stat">${correct}</div>
+                        <div class="stat-label">正解</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number wrong-stat">${total - correct}</div>
+                        <div class="stat-label">不正解</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">${total > 0 ? Math.round(correct / total * 100) : '-'}</div>
+                        <div class="stat-label">正解率 %</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-nav">
+                <button class="nav-btn" onclick="navigate(-1)" ${currentIndex === 0 ? 'disabled' : ''}>← 前の問題</button>
+                <div class="nav-info">
+                    問題 ${currentIndex + 1} / ${quizData.length}<br>
+                    <span style="font-size:11px;color:#aaa;">（本日の問題：No.${todayIndex + 1}）</span>
+                </div>
+                <button class="nav-btn" onclick="navigate(1)" ${currentIndex === quizData.length - 1 ? 'disabled' : ''}>次の問題 →</button>
+            </div>
+
+            <div class="question-card">
+                <div class="question-meta">${q.year}年度 第${q.no}問</div>
+                <div class="question-number">問題 ${currentIndex + 1}</div>
+                <div class="question-text">${q.question}</div>
+                <div class="choices">${choicesHTML}</div>
+                ${resultHTML}
+                ${!answered ? `
+                <div class="action-area">
+                    <button class="btn btn-primary" onclick="submitAnswer()" ${selectedChoice === null ? 'disabled' : ''} id="submitBtn">
+                        回答する
+                    </button>
+                    <button class="btn btn-secondary" onclick="showAnswer()">解説を見る</button>
+                </div>` : `
+                <div class="action-area">
+                    <button class="btn btn-primary" onclick="navigate(1)" ${currentIndex === quizData.length - 1 ? 'disabled' : ''}>
+                        次の問題へ →
+                    </button>
+                    <button class="btn btn-secondary" onclick="goToToday()">本日の問題へ</button>
+                </div>`}
+            </div>
+            `;
+        }
+
+        window.selectChoice = function(i) {
+            if (answered) return;
+            selectedChoice = i;
+            // Update state temporarily for re-render
+            const qs = getState(currentIndex);
+            state[currentIndex] = { answered: false, selectedChoice: i };
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn) submitBtn.disabled = false;
+            render();
+        };
+
+        window.submitAnswer = function() {
+            if (selectedChoice === null) return;
+            answered = true;
+            state[currentIndex] = { answered: true, selectedChoice };
+            saveState(state);
+            render();
+        };
+
+        window.showAnswer = function() {
+            answered = true;
+            state[currentIndex] = { answered: true, selectedChoice: selectedChoice };
+            saveState(state);
+            render();
+        };
+
+        window.navigate = function(dir) {
+            const next = currentIndex + dir;
+            if (next < 0 || next >= quizData.length) return;
+            currentIndex = next;
+            render();
+            window.scrollTo(0, 0);
+        };
+
+        window.goToToday = function() {
+            currentIndex = getTodayIndex();
+            render();
+            window.scrollTo(0, 0);
+        };
+
+        // Init
+        state = loadState();
+        currentIndex = getTodayIndex();
+        render();
+    })();
+    </script>
+</body>
+</html>

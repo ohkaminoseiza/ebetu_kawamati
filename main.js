@@ -41,6 +41,12 @@ function renderSidebar(activeCategoryId) {
 
     sidebar.innerHTML = `
         ${categoryLinks}
+        <div class="sidebar-gpt-card" style="margin-bottom:8px;">
+            <a href="mansionkanrishi-quiz.html">
+                <div class="gpt-card-icon">📝</div>
+                <div class="gpt-card-title">マンション管理士 日替わり過去問</div>
+            </a>
+        </div>
         <div class="sidebar-gpt-card">
             <a href="https://chatgpt.com/g/g-69c9966cca2481918930d5166dcb7ac1-jiang-bie-shi-kawamatitukurizhi-yuan-gpt" target="_blank" rel="noopener">
                 <div class="gpt-card-icon">🤖</div>
